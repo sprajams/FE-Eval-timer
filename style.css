@@ -1,0 +1,106 @@
+body {
+  box-sizing: border-box;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.title {
+  margin: 150px 0 0;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.outer {
+  width: fit-content;
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* inputs */
+.form {
+  display: flex;
+  align-items: center;
+}
+.input {
+  min-width: 50px;
+  font-size: 2rem;
+  text-align: center;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.separator {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/*button container*/
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.button {
+  padding: 25px 30px;
+  font-size: 1.2rem;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 4px;
+}
+.button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.startBtn {
+  background-color: rgb(37, 180, 37);
+  margin-right: 10px;
+}
+.pauseBtn {
+  background: rgb(239, 167, 34);
+  margin-right: 10px;
+}
+.resetBtn {
+  background-color: rgb(53, 217, 212);
+}
+
+/* active display */
+.activeDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.activeDisplay__item {
+  /* padding: 25px 30px;
+  font-size: 2rem;
+
+  padding: 10px;
+  margin: 0 10px; */
+  min-width: 50px;
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 10px;
+  margin: 0 12px;
+}
+
+@media (max-width: 500px) {
+  .outer {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  .button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px 25px;
+  }
+}
+
+.hidden {
+  display: none;
+}

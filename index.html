@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Countdown Timer</title>
+  </head>
+  <body>
+    <h1 class="title">Countdown!</h1>
+
+    <div class="outer">
+      <form class="form">
+        <div class="inputContainer">
+          <input
+            type="number"
+            id="hour"
+            name="hour"
+            placeholder="HH"
+            min="0"
+            max="24"
+            class="hour input"
+            require
+          />
+          <span class="separator">:</span>
+          <input
+            type="number"
+            id="minute"
+            name="minute"
+            placeholder="MM"
+            min="0"
+            max="60"
+            class="minute input"
+            require
+          />
+          <span class="separator">:</span>
+          <input
+            type="number"
+            id="second"
+            name="second"
+            placeholder="SS"
+            min="0"
+            max="60"
+            class="second input"
+            require
+          />
+        </div>
+        <div class="activeDisplay hidden">
+          <div class="activeDisplay__item activeHH">HH</div>
+          <span class="separator">:</span>
+          <div class="activeDisplay__item activeMM">MM</div>
+          <span class="separator">:</span>
+          <div class="activeDisplay__item activeSS">SS</div>
+        </div>
+        <div class="buttonContainer">
+          <button class="button startBtn" type="submit">START</button>
+        </div>
+      </form>
+      <button class="button pauseBtn hidden">Pause</button>
+      <button class="button resetBtn hidden">Reset</button>
+      <div class="result"></div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
