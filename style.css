@@ -81,6 +81,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
   padding: 10px;
   margin: 0 10px; */
+  width: 100%;
   min-width: 50px;
   font-size: 2.5rem;
   text-align: center;
@@ -89,15 +90,26 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @media (max-width: 500px) {
+  .form,
   .outer {
     width: fit-content;
     display: flex;
     flex-direction: column;
   }
+  .buttonContainer {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .buttonContainer2 {
+    width: 100%;
+  }
   .button {
     width: 100%;
     margin: 10px 0;
     padding: 20px 25px;
+  }
+  .startBtn {
+    width: 100%;
   }
 }
 
