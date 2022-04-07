@@ -3,19 +3,17 @@ console.log("hello mama");
 const startBtn = document.querySelector(".startBtn");
 const pauseBtn = document.querySelector(".pauseBtn");
 const resetBtn = document.querySelector(".resetBtn");
-const inputBox = document.querySelectorAll(".input");
+// const inputBox = document.querySelectorAll(".input");
 const form = document.querySelector(".form");
-const activeDisplay = document.querySelector(".activeDisplay");
+const activeDisplay = document.querySelectorAll(".active");
 const inputContainer = document.querySelector(".inputContainer");
 
 const activeHH = document.querySelector(".activeHH");
 const activeMM = document.querySelector(".activeMM");
 const activeSS = document.querySelector(".activeSS");
 
-const result = document.querySelector(".result");
-
-let intervalID;
 form.addEventListener("submit", formStart);
+let intervalID;
 let ss;
 
 function countdown() {
@@ -27,12 +25,11 @@ function countdown() {
     let minute = Math.floor(mm); //interger of minute
 
     let second = Math.floor((mm - minute) * 60); //interger of seconds
-    //decrease by 1 second
-    ss -= 1;
     // render each change
     activeHH.innerHTML = hour;
     activeMM.innerHTML = minute;
-    activeSS.innerHTML = second;
+    activeSS.innerHTML = second; //decrease by 1 second
+    ss -= 1;
   } else {
     stopCountdown();
   }
@@ -46,12 +43,22 @@ function formStart(e) {
   let ssData = parseFloat(formData.get("second"));
   let totalSeconds = hrData * 3600 + minData * 60 + ssData;
   ss = totalSeconds;
-  intervalID = setInterval(countdown, 100);
+  intervalID = setInterval(countdown, 1000, true);
+}
 
+startBtn.addEventListener("click", startAction);
+function startAction() {
+  console.log("starteeeed");
   startBtn.classList.toggle("hidden");
   pauseBtn.classList.toggle("hidden");
   inputContainer.classList.toggle("hidden");
-  activeDisplay.classList.toggle("hidden");
+  activeDisplay.forEach((x) => x.classList.toggle("hidden"));
+  if (inputContainer.classList.contains("hidden")) {
+    return;
+  } else {
+    inputContainer.classList.toggle("hidden");
+    activeDisplay.forEach((x) => x.classList.toggle("hidden"));
+  }
 }
 
 pauseBtn.addEventListener("click", stopCountdown);
@@ -60,21 +67,5 @@ function stopCountdown() {
   clearInterval(intervalID);
   startBtn.classList.toggle("hidden");
   pauseBtn.classList.toggle("hidden");
-  inputContainer.classList.toggle("hidden");
-  activeDisplay.classList.toggle("hidden");
+  //   resetBtn.classList.toggle("hidden");
 }
-
-// function startTimer(x) {
-//   console.log(hourInput);
-
-//   //   hideButton(startBtn);
-//   //   hideButton(pauseBtn);
-//   //   hideButton(resetBtn);
-// }
-
-// function disableInput() {
-//   inputBox.forEach((x) => (x.disabled = false));
-// }
-// function hideButton(x) {
-//   x.classList.toggle("hidden");
-// }
