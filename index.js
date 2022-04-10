@@ -40,6 +40,15 @@ function formStart(e) {
   let totalSeconds = hrData * 3600 + minData * 60 + ssData;
   ss = totalSeconds;
 
+  if (intervalID == "paused") {
+    intervalID = null;
+    hrData = parseFloat(activeHH.innerHTML);
+    minData = parseFloat(activeMM.innerHTML);
+    ssData = parseFloat(activeSS.innerHTML);
+    totalSeconds = hrData * 3600 + minData * 60 + ssData;
+    ss = totalSeconds;
+  }
+
   activeHH.innerHTML = hrData;
   activeMM.innerHTML = minData;
   activeSS.innerHTML = ssData;
@@ -58,7 +67,13 @@ function startAction() {
   }
 }
 
-pauseBtn.addEventListener("click", stopCountdown);
+pauseBtn.addEventListener("click", paused);
+function paused() {
+  stopCountdown();
+  intervalID = "paused";
+  console.log(intervalID);
+}
+
 function stopCountdown() {
   console.log("pls stop");
   clearInterval(intervalID);
@@ -73,6 +88,5 @@ function resetForm() {
   stopCountdown();
   form.reset();
   inputContainer.classList.remove("hidden");
-  startBtn.classList.remove("hidden");
   activeDisplay.forEach((x) => x.classList.add("hidden"));
 }
