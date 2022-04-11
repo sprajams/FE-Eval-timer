@@ -20,7 +20,7 @@
             min="0"
             max="24"
             class="hour input"
-            require
+            required
           />
           <span class="separator">:</span>
           <input
@@ -31,7 +31,7 @@
             min="0"
             max="60"
             class="minute input"
-            require
+            required
           />
           <span class="separator">:</span>
           <input
@@ -42,7 +42,7 @@
             min="0"
             max="60"
             class="second input"
-            require
+            required
           />
         </div>
         <div class="activeDisplay hidden active">
@@ -57,8 +57,8 @@
         <button class="button startBtn" form="onlyForm" type="submit">
           START
         </button>
-        <button class="button active pauseBtn hidden">Pause</button>
-        <button class="button active resetBtn hidden">Reset</button>
+        <button class="button active hidden pauseBtn">Pause</button>
+        <button class="button active hidden resetBtn">Reset</button>
       </div>
     </div>
     <script src="index.js" async></script>

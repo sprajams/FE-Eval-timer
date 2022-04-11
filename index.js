@@ -41,12 +41,12 @@ function formStart(e) {
   ss = totalSeconds;
 
   if (intervalID == "paused") {
-    intervalID = null;
     hrData = parseFloat(activeHH.innerHTML);
     minData = parseFloat(activeMM.innerHTML);
     ssData = parseFloat(activeSS.innerHTML);
     totalSeconds = hrData * 3600 + minData * 60 + ssData;
     ss = totalSeconds;
+    intervalID = null;
   }
 
   activeHH.innerHTML = hrData;

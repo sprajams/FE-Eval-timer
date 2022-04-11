@@ -41,14 +41,31 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 600;
 }
 
+/* active display */
+.activeDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.activeDisplay__item {
+  width: 100%;
+  min-width: 50px;
+  font-size: 2rem;
+  text-align: center;
+  padding: 10px;
+  margin: 0 12px;
+}
+
 /*button container*/
 .buttonContainer {
+  width: 250px;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  /* padding: 0 10px; */
 }
 .button {
-  padding: 25px 30px;
+  /* flex: 1 1 auto; */
+  padding: 20px 25px;
   font-size: 1.2rem;
   border: 1px solid rgb(189, 189, 189);
   border-radius: 4px;
@@ -59,34 +76,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .startBtn {
   background-color: rgb(37, 180, 37);
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .pauseBtn {
   background: rgb(239, 167, 34);
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .resetBtn {
   background-color: rgb(53, 217, 212);
-}
-
-/* active display */
-.activeDisplay {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.activeDisplay__item {
-  /* padding: 25px 30px;
-  font-size: 2rem;
-
-  padding: 10px;
-  margin: 0 10px; */
-  width: 100%;
-  min-width: 50px;
-  font-size: 2.5rem;
-  text-align: center;
-  padding: 10px;
-  margin: 0 12px;
 }
 
 @media (max-width: 500px) {
