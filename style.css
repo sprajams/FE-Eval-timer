@@ -1,5 +1,7 @@
 body {
   box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -12,28 +14,45 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 150px 0 0;
   text-align: center;
   font-size: 3rem;
+  color: rgb(45, 45, 45);
 }
 
 .outer {
-  width: fit-content;
   display: flex;
   position: fixed;
+  justify-content: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: 25vh;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(190, 190, 190, 0.795);
+  border-radius: 25px;
 }
-
+@media (min-width: 1024px) {
+  .outer {
+    width: 750px;
+  }
+}
 /* inputs */
 .form {
   display: flex;
   align-items: center;
 }
+.inputContainer {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
 .input {
-  min-width: 50px;
-  font-size: 2rem;
+  min-width: 75px;
+  font-size: 3rem;
   text-align: center;
   padding: 10px;
   margin: 0 10px;
+  border: 2px solid white;
+  box-shadow: 0 3px 10px rgba(190, 190, 190, 0.795);
+  border-radius: 25px;
 }
 
 .separator {
@@ -46,44 +65,56 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: rgb(142, 0, 0);
 }
 .activeDisplay__item {
   width: 100%;
-  min-width: 50px;
-  font-size: 2rem;
+  min-width: 75px;
+  font-size: 3rem;
+  font-weight: 600;
   text-align: center;
-  padding: 10px;
-  margin: 0 12px;
+  padding: 12px;
+  margin: 0 10px;
 }
 
 /*button container*/
 .buttonContainer {
-  width: 250px;
+  width: 210px;
   display: flex;
   align-items: center;
-  /* padding: 0 10px; */
+  justify-content: space-between;
+}
+@media (min-width: 760px) {
+  .buttonContainer {
+    margin-left: 10px;
+  }
 }
 .button {
-  /* flex: 1 1 auto; */
-  padding: 20px 25px;
+  flex: 1 1 auto;
+  min-width: 100px;
+  padding: 30px 20px;
   font-size: 1.2rem;
-  border: 1px solid rgb(189, 189, 189);
-  border-radius: 4px;
+  font-weight: 600;
+
+  text-align: center;
+  border: 1px solid rgba(189, 189, 189, 0);
+  background-color: rgb(241, 241, 241);
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(159, 159, 159, 0.795);
 }
 .button:hover {
   cursor: pointer;
   opacity: 0.7;
 }
 .startBtn {
-  background-color: rgb(37, 180, 37);
-  /* margin-right: 10px; */
+  color: rgb(20, 88, 20);
 }
 .pauseBtn {
-  background: rgb(239, 167, 34);
-  /* margin-right: 10px; */
+  color: rgb(70, 20, 95);
 }
 .resetBtn {
-  background-color: rgb(53, 217, 212);
+  margin-left: 10px;
+  color: rgb(8, 14, 124);
 }
 
 @media (max-width: 500px) {
@@ -93,19 +124,12 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     flex-direction: column;
   }
-  .buttonContainer {
-    margin-top: 20px;
-    width: 100%;
-  }
-  .buttonContainer2 {
-    width: 100%;
-  }
   .button {
     width: 100%;
-    margin: 10px 0;
-    padding: 20px 25px;
+    margin: 10px;
   }
-  .startBtn {
+  .buttonContainer {
+    margin-top: 10px;
     width: 100%;
   }
 }
