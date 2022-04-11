@@ -53,17 +53,16 @@ function formStart(e) {
   activeMM.innerHTML = minData;
   activeSS.innerHTML = ssData;
   intervalID = setInterval(countdown, 500);
-}
 
-startBtn.addEventListener("click", startAction);
-function startAction() {
-  startBtn.classList.add("hidden");
-  inputContainer.classList.add("hidden");
-  if (inputContainer.classList.contains("hidden")) {
-    activeDisplay.forEach((x) => x.classList.remove("hidden"));
-    return;
-  } else {
-    inputContainer.classList.toggle("hidden");
+  if (form.checkValidity()) {
+    inputContainer.classList.add("hidden");
+    startBtn.classList.add("hidden");
+    if (inputContainer.classList.contains("hidden")) {
+      activeDisplay.forEach((x) => x.classList.remove("hidden"));
+      return;
+    } else {
+      inputContainer.classList.toggle("hidden");
+    }
   }
 }
 
@@ -75,7 +74,6 @@ function paused() {
 }
 
 function stopCountdown() {
-  console.log("pls stop");
   clearInterval(intervalID);
   intervalID = null;
   startBtn.classList.remove("hidden");
