@@ -21,9 +21,18 @@ function countdown() {
     let minute = Math.floor(mm); //interger of minute
     let second = ss - (hour * 3600 + minute * 60);
     // render each change
-    activeHH.innerHTML = hour;
-    activeMM.innerHTML = minute;
-    activeSS.innerHTML = second;
+    activeHH.innerHTML = hour.toLocaleString("en-US", {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    });
+    activeMM.innerHTML = minute.toLocaleString("en-US", {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    });
+    activeSS.innerHTML = second.toLocaleString("en-US", {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    });
     //decrease by 1 second
     ss -= 1;
   } else {
@@ -33,13 +42,14 @@ function countdown() {
 
 function formStart(e) {
   e.preventDefault();
+  //get form data user inputted
   let formData = new FormData(form);
   let hrData = parseFloat(formData.get("hour"));
   let minData = parseFloat(formData.get("minute"));
   let ssData = parseFloat(formData.get("second"));
   let totalSeconds = hrData * 3600 + minData * 60 + ssData;
   ss = totalSeconds;
-
+  // if pause btn is clicked, reset data to values on display/active screen
   if (intervalID == "paused") {
     hrData = parseFloat(activeHH.innerHTML);
     minData = parseFloat(activeMM.innerHTML);
@@ -48,21 +58,28 @@ function formStart(e) {
     ss = totalSeconds;
     intervalID = null;
   }
-
-  activeHH.innerHTML = hrData;
-  activeMM.innerHTML = minData;
-  activeSS.innerHTML = ssData;
-  intervalID = setInterval(countdown, 500);
-
-  if (form.checkValidity()) {
-    inputContainer.classList.add("hidden");
-    startBtn.classList.add("hidden");
-    if (inputContainer.classList.contains("hidden")) {
-      activeDisplay.forEach((x) => x.classList.remove("hidden"));
-      return;
-    } else {
-      inputContainer.classList.toggle("hidden");
-    }
+  // display and convert initial time before 1s countdown happens and convert to ##
+  activeHH.innerHTML = hrData.toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  activeMM.innerHTML = minData.toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  activeSS.innerHTML = ssData.toLocaleString("en-US", {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  });
+  intervalID = setInterval(countdown, 1000);
+  // on submit, hide inputs & start btn, show display screen with pause + reset btns
+  inputContainer.classList.add("hidden");
+  startBtn.classList.add("hidden");
+  if (inputContainer.classList.contains("hidden")) {
+    activeDisplay.forEach((x) => x.classList.remove("hidden"));
+    return;
+  } else {
+    inputContainer.classList.toggle("hidden");
   }
 }
 
