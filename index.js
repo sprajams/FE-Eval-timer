@@ -33,7 +33,8 @@ function countdown() {
       minimumIntegerDigits: 2,
       useGrouping: false,
     });
-    //decrease by 1 second
+    console.log(hour, minute, second);
+    // decrease by 1 second
     ss -= 1;
   } else {
     stopCountdown();
@@ -58,19 +59,10 @@ function formStart(e) {
     ss = totalSeconds;
     intervalID = null;
   }
-  // display and convert initial time before 1s countdown happens and convert to ##
-  activeHH.innerHTML = hrData.toLocaleString("en-US", {
-    minimumIntegerDigits: 2,
-    useGrouping: false,
-  });
-  activeMM.innerHTML = minData.toLocaleString("en-US", {
-    minimumIntegerDigits: 2,
-    useGrouping: false,
-  });
-  activeSS.innerHTML = ssData.toLocaleString("en-US", {
-    minimumIntegerDigits: 2,
-    useGrouping: false,
-  });
+
+  // initial call
+  countdown();
+  // subsequent delayed calls
   intervalID = setInterval(countdown, 1000);
   // on submit, hide inputs & start btn, show display screen with pause + reset btns
   inputContainer.classList.add("hidden");
@@ -87,7 +79,7 @@ pauseBtn.addEventListener("click", paused);
 function paused() {
   stopCountdown();
   intervalID = "paused";
-  console.log(intervalID);
+  // console.log(intervalID);
 }
 
 function stopCountdown() {
